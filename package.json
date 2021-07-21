@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~12.1.2",
     "@angular/platform-browser-dynamic": "~12.1.2",
     "@angular/router": "~12.1.2",
+    "auth-service": "^1.0.0",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
     "http-proxy-middleware": "^2.0.1",
