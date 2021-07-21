@@ -1,10 +1,18 @@
 //Install express server
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
+const {createProxyMiddleware} = require('http-proxy-middleware');
 
 const app = express();
-app.use(cors())
+
+// Proxy endpoints for /api calls
+app.use('/api', createProxyMiddleware({
+    target: "https://discord-bot-generator-backend.herokuapp.com/",
+    changeOrigin: true,
+    pathRewrite: {
+        [`^/api`]: '',
+    },
+ }));
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/discordBotGenerator'));

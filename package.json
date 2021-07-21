@@ -1,13 +1,13 @@
 {
   "name": "discord-bot-generator",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --configuration production",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "heroku-postbuild": "npm install"
+    "heroku-postbuild": "ng build"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +22,8 @@
     "@angular/platform-browser-dynamic": "~12.1.2",
     "@angular/router": "~12.1.2",
     "express": "^4.17.1",
+    "express-http-proxy": "^1.6.2",
+    "http-proxy-middleware": "^2.0.1",
     "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
