@@ -2,7 +2,7 @@
     "/api/*": {
         "target": "https://discord-bot-generator-backend.herokuapp.com",
         "pathRewrite": {"^/api" : ""},
-        "secure": false,
+        "changeOrigin": true,
         "logLevel": "debug"
     }
 }
