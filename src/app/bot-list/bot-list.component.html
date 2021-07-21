@@ -1,0 +1,9 @@
+<h2>My bots</h2>
+
+<div class="bots">
+    <div *ngFor="let bot of bots"
+        [class.selected]="bot === selectedBot"
+        (click)="onSelect(bot)">
+        {{bot.id}}: {{bot.description}}
+    </div>
+</div>

@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "83ce4ef0-3868-4ce3-aaea-531878c7df50"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -68,10 +71,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "discordBotGenerator:build:production"
+              "browserTarget": "discordBotGenerator:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
-              "browserTarget": "discordBotGenerator:build:development"
+              "browserTarget": "discordBotGenerator:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
