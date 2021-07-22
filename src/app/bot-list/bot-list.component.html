@@ -1,11 +1,19 @@
 <app-user-details></app-user-details>
 
-<h2>My bots</h2>
-
-<div class="bots">
-    <div *ngFor="let bot of bots"
-        [class.selected]="bot === selectedBot"
-        (click)="onSelect(bot)">
-        {{bot.id}}: {{bot.description}}
+<div class="largeWrapper">
+    <div id="botsForm">
+        <h2>My bots</h2>
+        <div class="bots">
+            <table>
+                <tr *ngFor="let bot of bots" [class.selected]="bot === selectedBot" (click)="onSelect(bot)">
+            <td >
+                {{bot.id}}: 
+            </td>
+            <td>
+                {{bot.description}}
+            </td>
+        </tr>
+        </table>
+        </div>
     </div>
 </div>

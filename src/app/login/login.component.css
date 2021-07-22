@@ -1,0 +1,25 @@
+#loginForm{
+    margin: auto;
+    margin-top: 10%;
+    width: 30%;
+    height: 200px;
+    background-color: rgba(224, 153, 0, 0.836);
+    padding: 20px;
+    border-radius: 20px 0 20px 0;
+}
+
+.discordButton{
+    border: none;
+    background-color: rgb(88, 101, 242);
+    width: 150px;
+    height: 60px;
+    border-radius: 20px;
+}
+
+.discordButton:hover{
+    background-color: rgb(100, 113, 248);
+}
+
+.discordButton img{
+    width: 50px;
+}
