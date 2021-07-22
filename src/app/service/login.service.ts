@@ -45,8 +45,8 @@ export abstract class LoginService{
      * login method that makes the user authentified in the application.
      * @param userId User identifier to login in the application.
      */
-    protected login(userId: string){
-        sessionStorage.setItem("userLogged", userId);
+    protected login(user: User){
+        sessionStorage.setItem("userLogged", user.toString());
         this.router.navigate(["/bots"]);
     }
 };
@@ -104,7 +104,7 @@ export class DiscordLoginService extends LoginService {
                 catchError(this.handleError<User>('getUserDetails'))
             )
             .subscribe(
-                user => this.login(user.id),
+                user => this.login(user),
                 err => console.error(err),
                 () => console.log("geting user details process completed")
             );
