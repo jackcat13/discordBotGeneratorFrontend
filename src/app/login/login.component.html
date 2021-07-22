@@ -1,5 +1,5 @@
 <div class="largeWrapper">
-    <div id="loginForm">
+    <div id="loginForm" [ngStyle]="{'opacity': isLoading == true ? '0.5' : '' }">
         <div class="loginEntry">
             <h1>Login</h1>
         </div>
@@ -10,3 +10,5 @@
         </div>
     </div>
 </div>
+
+<app-spinner [ngStyle]="{'visibility': isLoading == true ? 'visible' : 'hidden' }"></app-spinner>

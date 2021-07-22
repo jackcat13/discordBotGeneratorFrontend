@@ -46,8 +46,9 @@ export abstract class LoginService{
      * login method that makes the user authentified in the application.
      * @param userId User identifier to login in the application.
      */
-    protected login(user: User){
+    protected async login(user: User){
         sessionStorage.setItem("userLogged", JSON.stringify(user));
+        await new Promise(f => setTimeout(f, 1000));
         this.router.navigate(["/bots"]);
     }
 

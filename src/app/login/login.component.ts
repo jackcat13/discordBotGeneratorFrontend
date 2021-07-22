@@ -12,17 +12,17 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private loginService: DiscordLoginService) { }
 
-  discordAuthorizationApi: any = environment.discord_authorization_api
+  isLoading = false;
+
+  discordAuthorizationApi: any = environment.discord_authorization_api;
 
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
-        console.log(params.code);
-        if (params.code != null) this.loginService.sendDiscordCode(params.code);
+        if (params.code != null) {
+          this.loginService.sendDiscordCode(params.code);
+          this.isLoading = true;
+        }
       });
-    
   }
-
-  
-
 }

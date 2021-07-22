@@ -8,13 +8,15 @@ import { BotListComponent } from './bot-list/bot-list.component';
 import { LoginComponent } from './login/login.component';
 import { DiscordLoginService } from './service/login.service';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BotListComponent,
     LoginComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
