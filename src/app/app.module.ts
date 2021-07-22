@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { DiscordLoginService } from './service/login.service';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [DiscordLoginService],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-#userDetails{
+#userDetails {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -8,21 +8,13 @@
     border-radius: 20px 0 20px 0;
 }
 
-#avatar{
+#avatar {
     border-radius: 30px;
     width: 60px;
     height: 60px;
     background-image: url("./generic-avatar.png");
 }
 
-.userentry{
+.userentry {
     margin-top: 15px;
-}
-
-#logout{
-    border: none;
-    background-color: rgba(255, 0, 0, 0.74);
-    width: 80px;
-    height: 40px;
-    border-radius: 10px 0 10px 0;
 }

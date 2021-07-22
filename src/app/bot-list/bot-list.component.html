@@ -6,14 +6,24 @@
         <div class="bots">
             <table>
                 <tr *ngFor="let bot of bots" [class.selected]="bot === selectedBot" (click)="onSelect(bot)">
-            <td >
-                {{bot.id}}: 
-            </td>
-            <td>
-                {{bot.description}}
-            </td>
-        </tr>
-        </table>
+                    <td>
+                        {{bot.id}}:
+                    </td>
+                    <td>
+                        {{bot.description}}
+                    </td>
+                </tr>
+            </table>
+            <div id="createBotForm">
+                <div class="createBotEntry">
+                    <label for="botId">Id: </label>
+                    <input id="botId" type="text" [formControl]="botId">
+                </div>
+                <div class="createBotEntry">
+                    <label for="botDescription">Description: </label>
+                    <input id="botDescription" type="text" [formControl]="botDescription">
+                </div>
+                <button class="button" (click)="createBot()">Create bot</button>
+            </div>
         </div>
     </div>
-</div>

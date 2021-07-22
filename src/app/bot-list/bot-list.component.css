@@ -1,4 +1,4 @@
-#botsForm{
+#botsForm {
     margin: auto;
     margin-top: 10%;
     width: 50%;
@@ -8,10 +8,14 @@
     border-radius: 20px 0 20px 0;
 }
 
-.bots table{
+.bots table {
     padding: 10px;
 }
 
-.bots table td{
+.bots table td {
     padding: 10px;
+}
+
+.createBotEntry {
+    margin-bottom: 10px;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Bot } from '../model/Bot';
 import { BotService } from '../service/bot.service';
 
@@ -14,6 +15,9 @@ export class BotListComponent implements OnInit {
 
   selectedBot!: Bot;
 
+  botId = new FormControl('');
+  botDescription = new FormControl('');
+
   constructor(private service: BotService) { 
     this.service.getBots().subscribe(
       bots => (this.bots.push(...bots)),
@@ -27,6 +31,14 @@ export class BotListComponent implements OnInit {
 
   onSelect(bot: Bot): void{
 
+  }
+
+  createBot(): void{
+    this.service.createBot(this.botId.value, this.botDescription.value).subscribe(
+      bot => this.bots.push(bot),
+      err => console.error(err),
+      () => console.log("get all bots service completed")
+    );
   }
 
 }
