@@ -5,6 +5,8 @@ const {createProxyMiddleware} = require('http-proxy-middleware');
 
 const app = express();
 
+console.log(process.env)
+
 // Proxy endpoints for /api calls
 app.use('/api', createProxyMiddleware({
     target: "https://discord-bot-generator-backend.herokuapp.com/",

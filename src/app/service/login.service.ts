@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
+import { environment } from "src/environments/environment";
 import { Token } from "../model/Token";
 import { User } from "../model/User";
 
@@ -46,9 +47,14 @@ export abstract class LoginService{
      * @param userId User identifier to login in the application.
      */
     protected login(user: User){
-        sessionStorage.setItem("userLogged", user.toString());
+        sessionStorage.setItem("userLogged", JSON.stringify(user));
         this.router.navigate(["/bots"]);
     }
+
+    public deconnect() {
+        sessionStorage.removeItem("userLogged");
+        this.router.navigate(["/login"]);
+      }
 };
 
 /**
@@ -60,8 +66,8 @@ export class DiscordLoginService extends LoginService {
 
     constructor(private http: HttpClient, router: Router) {super(router)}
 
-    selfRedirect: any = process.env.DISCORD_REDIRECT
-    accessTokenApi = "https://discordapp.com/api/oauth2/token"
+    selfRedirect: any = environment.discord_redirect;
+    accessTokenApi = "https://discordapp.com/api/oauth2/token";
     userDetailsApi = "https://discordapp.com/api/users/@me";
 
     /**

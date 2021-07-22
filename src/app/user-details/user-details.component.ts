@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/User';
+import { DiscordLoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-user-details',
@@ -8,13 +9,17 @@ import { User } from '../model/User';
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: DiscordLoginService) { }
 
   user: User = {id: "", username: "", discriminator: 0, avatar: "", locale: ""};
 
   ngOnInit(): void {
-    let loggedUser: any = sessionStorage.getItem("userLogged");
+    let loggedUser: any = sessionStorage.userLogged;
+    console.log(sessionStorage);
     if (loggedUser) this.user = <User>JSON.parse(loggedUser);
   }
 
+  deconnection(): void{
+    this.loginService.deconnect();
+  }
 }
