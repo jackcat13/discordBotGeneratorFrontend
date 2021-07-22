@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Bot } from '../model/Bot';
 import { BotService } from '../service/bot.service';
 
@@ -7,7 +8,7 @@ import { BotService } from '../service/bot.service';
   selector: 'app-bot-list',
   templateUrl: './bot-list.component.html',
   styleUrls: ['./bot-list.component.css'],
-  providers: [ BotService ]
+  providers: [BotService]
 })
 export class BotListComponent implements OnInit {
 
@@ -18,7 +19,7 @@ export class BotListComponent implements OnInit {
   botId = new FormControl('');
   botDescription = new FormControl('');
 
-  constructor(private service: BotService) { 
+  constructor(private service: BotService, private router: Router) {
     this.service.getBots().subscribe(
       bots => (this.bots.push(...bots)),
       err => console.error(err),
@@ -29,11 +30,11 @@ export class BotListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelect(bot: Bot): void{
+  onSelect(bot: Bot): void {
 
   }
 
-  createBot(): void{
+  createBot(): void {
     this.service.createBot(this.botId.value, this.botDescription.value).subscribe(
       bot => this.bots.push(bot),
       err => console.error(err),
@@ -41,4 +42,16 @@ export class BotListComponent implements OnInit {
     );
   }
 
+  deleteBot(bot: Bot): void {
+    this.service.deleteBot(bot).subscribe(
+      res => this.removeBotFromList(bot.id),
+      err => console.error(err),
+      () => console.log("delete bot service completed")
+    );
+  }
+
+  private removeBotFromList(botId: string): void {
+    const removeIndex = this.bots.findIndex(item => item.id === botId);
+    this.bots.splice(removeIndex, 1);
+  }
 }

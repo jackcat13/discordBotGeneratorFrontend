@@ -25,6 +25,12 @@ export class BotService {
         return this.http.post<Bot>(this.botUrl, bot);
     }
 
+    deleteBot(botToDelete: Bot): Observable<any> {
+        let userId = this.getUserIdLogged()
+        let user: User = {id: userId, username: "", discriminator: 0, avatar: "", locale: ""};
+        return this.http.delete<any>(this.botUrl + "/" + botToDelete.id);
+    }
+
     private getUserIdLogged(): string{
         let userId = "";
         let loggedUser: any = sessionStorage.userLogged;
