@@ -60,7 +60,7 @@ export class DiscordLoginService extends LoginService {
 
     constructor(private http: HttpClient, router: Router) {super(router)}
 
-    selfRedirect = "https://discord-bot-generator-frontend.herokuapp.com/login"
+    selfRedirect: any = process.env.DISCORD_REDIRECT
     accessTokenApi = "https://discordapp.com/api/oauth2/token"
     userDetailsApi = "https://discordapp.com/api/users/@me";
 

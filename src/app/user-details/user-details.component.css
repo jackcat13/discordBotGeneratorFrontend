@@ -6,7 +6,8 @@
 }
 
 #avatar{
-    border-radius: 10px;
-    width: 40px;
-    background-color: red;
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    background-image: url("./generic-avatar.png");
 }
