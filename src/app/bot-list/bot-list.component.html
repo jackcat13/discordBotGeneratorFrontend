@@ -30,6 +30,13 @@
     <div id="botConfiguration" class="normalBox" [ngStyle]="{'visibility': isConfiguring == true ? 'visible' : 'hidden' }">
         <div id="botCommands">
 
+            <h2>Token</h2>
+            <table>
+                <tr>
+                    <td><input type="text" [formControl]="token"></td>
+                </tr>
+            </table>
+
             <h2>Commands</h2>
             <table>
                 <tr>

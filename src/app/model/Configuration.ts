@@ -8,4 +8,5 @@ export interface Configuration{
     channels: Channels;
     messages: Messages;
     roles: Roles;
+    token: String;
 }

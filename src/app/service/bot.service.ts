@@ -46,6 +46,10 @@ export class BotService {
         return this.http.put<Bot>(this.botUrl, bot);
     }
 
+    startBot(botId: string): Observable<Bot> {
+        return this.http.post<Bot>(this.botUrl + "/" + botId, {});
+    }
+
     deleteBot(botToDelete: Bot): Observable<any> {
         let userId = this.getUserIdLogged()
         let user: User = { id: userId, username: "", discriminator: 0, avatar: "", locale: "" };

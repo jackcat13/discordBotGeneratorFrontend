@@ -16,6 +16,8 @@ export class BotListComponent implements OnInit {
 
   selectedBot!: Bot;
 
+  //token
+  token = new FormControl('');
   //bot creation
   botId = new FormControl('');
   botDescription = new FormControl('');
@@ -56,6 +58,8 @@ export class BotListComponent implements OnInit {
   onSelect(bot: Bot): void {
     this.selectedBot = Object.assign({}, bot);
 
+    //token
+    this.token.setValue(bot.configuration?.token);
     //comands
     this.sondage.setValue(bot.configuration?.commands.sondage);
     this.help.setValue(bot.configuration?.commands.help);
@@ -93,7 +97,17 @@ export class BotListComponent implements OnInit {
     );
   }
 
+  startBot(): void{
+    this.service.startBot(this.selectedBot.id).subscribe(
+      res => console.log("Bot started"),
+      err => console.error(err),
+      () => console.log("Starting bot completed")
+    );
+  }
+
   private changeSelectedBotConfiguration(){
+    //token
+    this.selectedBot.configuration!.token = this.token.value;
     //commands
     this.selectedBot.configuration!.commands.help = this.help.value;
     this.selectedBot.configuration!.commands.mp = this.mp.value;
