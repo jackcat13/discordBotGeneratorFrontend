@@ -18,16 +18,20 @@ export class BotListComponent implements OnInit {
 
   botId = new FormControl('');
   botDescription = new FormControl('');
+  isLoading = false;
 
-  constructor(private service: BotService, private router: Router) {
+  constructor(private service: BotService) {}
+
+  ngOnInit(): void {
+    this.isLoading = true;
     this.service.getBots().subscribe(
       bots => (this.bots.push(...bots)),
       err => console.error(err),
-      () => console.log("get all bots service completed")
+      () => {
+        console.log("get all bots service completed")
+        this.isLoading = false;
+      }
     );
-  }
-
-  ngOnInit(): void {
   }
 
   onSelect(bot: Bot): void {
