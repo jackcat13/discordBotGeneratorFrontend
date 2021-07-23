@@ -36,3 +36,9 @@ input {
     height: 40px;
     border-radius: 10px 0 10px 0;
 }
+
+.normalBox {
+    background-color: rgba(224, 153, 0, 0.836);
+    padding: 20px;
+    border-radius: 20px 0 20px 0;
+}

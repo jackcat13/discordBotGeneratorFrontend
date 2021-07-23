@@ -1,20 +1,16 @@
+<app-spinner [ngStyle]="{'visibility': isLoading == true ? 'visible' : 'hidden' }"></app-spinner>
+
 <app-user-details></app-user-details>
 
 <div class="largeWrapper" [ngStyle]="{'opacity': isLoading == true ? '0.5' : '' }">
-    <div id="botsForm">
+    <div id="botsForm" class="normalBox">
         <h2>My bots</h2>
         <div class="bots">
             <table>
                 <tr *ngFor="let bot of bots" [class.selected]="bot === selectedBot" (click)="onSelect(bot)">
-                    <td>
-                        {{bot.id}}:
-                    </td>
-                    <td>
-                        {{bot.description}}
-                    </td>
-                    <td>
-                        <button class="button" (click)="deleteBot(bot)">Delete</button>
-                    </td>
+                    <td>{{bot.id}}:</td>
+                    <td>{{bot.description}}</td>
+                    <td><button class="button" (click)="deleteBot(bot)">Delete</button></td>
                 </tr>
             </table>
             <div id="createBotForm">
@@ -31,4 +27,63 @@
         </div>
     </div>
 
-    <app-spinner [ngStyle]="{'visibility': isLoading == true ? 'visible' : 'hidden' }"></app-spinner>
+    <div id="botConfiguration" class="normalBox" [ngStyle]="{'visibility': isConfiguring == true ? 'visible' : 'hidden' }">
+        <div id="botCommands">
+
+            <h2>Commands</h2>
+            <table>
+                <tr>
+                    <td><input type="text" [formControl]="sondage"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" [formControl]="help"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" [formControl]="mp"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" [formControl]="mute"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" [formControl]="unmute"></td>
+                </tr>
+            </table>
+
+            <h2>Channels</h2>
+            <table>
+                <tr>
+                    <td><input type="text" [formControl]="messagesChannel"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" [formControl]="welcomeChannel"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" [formControl]="logsChannel"></td>
+                </tr>
+            </table>
+
+            <h2>Messages</h2>
+            <table>
+                <tr>
+                    <td><input type="text" [formControl]="rulesMessages"></td>
+                </tr>
+            </table>
+
+            <h2>Roles</h2>
+            <table>
+                <tr>
+                    <td><input type="text" [formControl]="activeRole"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" [formControl]="muteRole"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" [formControl]="adminRole"></td>
+                </tr>
+            </table>
+
+            <button class="button" (click)="configureBot()">Configure bot</button>
+
+        </div>
+    </div>
+</div>

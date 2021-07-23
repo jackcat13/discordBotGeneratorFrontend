@@ -6,6 +6,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { Bot } from "../model/Bot";
 import { User } from "../model/User";
 import { delay, mergeMap, retryWhen } from "rxjs/operators";
+import { Configuration } from "../model/Configuration";
 
 @Injectable()
 export class BotService {
@@ -39,6 +40,10 @@ export class BotService {
         let user: User = { id: userId, username: "", discriminator: 0, avatar: "", locale: "" };
         let bot: Bot = { id: botId, description: botDescription, user: user }
         return this.http.post<Bot>(this.botUrl, bot);
+    }
+
+    configureBot(bot: Bot): Observable<Bot> {
+        return this.http.put<Bot>(this.botUrl, bot);
     }
 
     deleteBot(botToDelete: Bot): Observable<any> {
