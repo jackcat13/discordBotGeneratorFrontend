@@ -10,6 +10,7 @@ import { Configuration } from "../model/Configuration";
 
 @Injectable()
 export class BotService {
+    
     botUrl = 'api/bots';
 
     constructor(private http: HttpClient) { }
@@ -23,6 +24,10 @@ export class BotService {
             })
         );
     }
+
+    getBotServiceStatus(botId: String) {
+        return this.http.get<Boolean>(this.botUrl + "/" + botId + "/botAsAServiceStatus", {});
+      }
 
     private manageRetry(error: Observable<any>): Observable<any> {
         return error.pipe(

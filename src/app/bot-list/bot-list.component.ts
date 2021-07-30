@@ -40,6 +40,7 @@ export class BotListComponent implements OnInit {
 
   isLoading = false;
   isConfiguring = false;
+  isBotStarted: Boolean = false;
 
   constructor(private service: BotService) {}
 
@@ -78,6 +79,7 @@ export class BotListComponent implements OnInit {
     this.adminRole.setValue(bot.configuration?.roles.adminRole);
 
     this.isConfiguring = true
+    this.getBotServiceStatus(this.selectedBot.id)
   }
 
   createBot(): void {
@@ -99,7 +101,10 @@ export class BotListComponent implements OnInit {
 
   startBot(): void{
     this.service.startBot(this.selectedBot.id).subscribe(
-      res => console.log("Bot started"),
+      res => {
+        console.log("Bot started")
+        this.getBotServiceStatus(this.selectedBot.id)
+      },
       err => console.error(err),
       () => console.log("Starting bot completed")
     );
@@ -124,6 +129,14 @@ export class BotListComponent implements OnInit {
     this.selectedBot.configuration!.roles.activeRole = this.activeRole.value;
     this.selectedBot.configuration!.roles.adminRole = this.adminRole.value;
     this.selectedBot.configuration!.roles.muteRole = this.muteRole.value;
+  }
+
+  private getBotServiceStatus(id: String){
+    this.service.getBotServiceStatus(id).subscribe(
+      res => this.isBotStarted = res,
+      err => console.error(err),
+      () => console.log("Configure bot completed")
+    )
   }
 
   deleteBot(bot: Bot): void {

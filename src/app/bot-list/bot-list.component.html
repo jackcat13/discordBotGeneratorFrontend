@@ -1,4 +1,4 @@
-<app-spinner [ngStyle]="{'visibility': isLoading == true ? 'visible' : 'hidden' }"></app-spinner>
+<app-spinner *ngIf="isLoading"></app-spinner>
 
 <app-user-details></app-user-details>
 
@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div id="botConfiguration" class="normalBox" [ngStyle]="{'visibility': isConfiguring == true ? 'visible' : 'hidden' }">
+    <div id="botConfiguration" class="normalBox" *ngIf="isConfiguring">
         <div id="botCommands">
 
             <h2>Token</h2>
@@ -90,8 +90,8 @@
             </table>
 
             <button class="button" (click)="configureBot()">Configure bot</button>
-            <button class="button" (click)="startBot()">Start bot</button>
-
+            <button *ngIf="!isBotStarted" class="button" (click)="startBot()">Start bot</button>
+            <div *ngIf="isBotStarted">Bot started</div>
         </div>
     </div>
 </div>

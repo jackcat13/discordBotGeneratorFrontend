@@ -11,4 +11,4 @@
     </div>
 </div>
 
-<app-spinner [ngStyle]="{'visibility': isLoading == true ? 'visible' : 'hidden' }"></app-spinner>
+<app-spinner *ngIf="isLoading"></app-spinner>
