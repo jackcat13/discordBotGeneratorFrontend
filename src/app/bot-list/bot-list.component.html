@@ -7,9 +7,9 @@
         <h2>My bots</h2>
         <div class="bots">
             <table>
-                <tr *ngFor="let bot of bots" [class.selected]="bot === selectedBot" (click)="onSelect(bot)">
-                    <td>{{bot.id}}:</td>
-                    <td>{{bot.description}}</td>
+                <tr *ngFor="let bot of bots" [class.selected]="bot === selectedBot" tabindex="0">
+                    <td (click)="onSelect(bot)">{{bot.id}}:</td>
+                    <td (click)="onSelect(bot)">{{bot.description}}</td>
                     <td><button class="button" (click)="deleteBot(bot)">Delete</button></td>
                 </tr>
             </table>
