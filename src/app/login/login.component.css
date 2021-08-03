@@ -12,11 +12,16 @@
     background-color: rgb(69, 82, 221);
     width: 140px;
     height: 60px;
-    border-radius: 20px;
+    border-radius: 20px 0 20px 0;
+    transition: all 0.25s ease-in-out;
 }
 
 .discordButton:hover {
     background-color: rgb(85, 98, 248);
+}
+
+.discordButton:active {
+    border: solid 1px rgba(255, 174, 0, 0.877);;
 }
 
 .discordButton img {

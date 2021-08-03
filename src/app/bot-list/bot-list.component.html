@@ -89,8 +89,11 @@
                 </tr>
             </table>
 
-            <button class="button" (click)="configureBot()">Configure bot</button>
-            <button *ngIf="!isBotStarted" class="button" (click)="startBot()">Start bot</button>
+            <div>
+                <button class="button" (click)="configureBot()">Configure bot</button>
+                <button *ngIf="!isBotStarted" class="button" (click)="startBot()">Start bot</button>
+            </div>
+
             <div *ngIf="isBotStarted">Bot started</div>
         </div>
     </div>

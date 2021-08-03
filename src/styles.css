@@ -35,6 +35,15 @@ input {
     width: 80px;
     height: 40px;
     border-radius: 10px 0 10px 0;
+    transition: all 0.25s ease-in-out;
+}
+
+.button:hover{
+    background-color: rgba(224, 33, 33, 0.74);
+}
+
+.button:active{
+    border: solid 1px black;
 }
 
 .normalBox {
