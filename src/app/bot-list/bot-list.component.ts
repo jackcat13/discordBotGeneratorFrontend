@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Bot } from '../model/Bot';
-import { Configuration } from '../model/Configuration';
 import { BotService } from '../service/bot.service';
 
 @Component({

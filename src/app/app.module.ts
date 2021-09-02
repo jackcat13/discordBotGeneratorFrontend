@@ -1,4 +1,4 @@
-import { Injectable, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -10,6 +10,13 @@ import { DiscordLoginService } from './service/login.service';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BorderedTitleModule } from 'jackcat13-ng-bordered-title';
+import { BorderedDivModule } from 'jackcat13-ng-bordered-div';
+import { BorderedButtonModule } from 'jackcat13-ng-bordered-button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +30,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BorderedTitleModule,
+    BorderedDivModule,
+    BorderedButtonModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [DiscordLoginService],
   bootstrap: [AppComponent]

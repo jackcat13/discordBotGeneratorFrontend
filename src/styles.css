@@ -13,16 +13,10 @@
 }
 
 body {
-    background-color: #272525;
+    background-color: #ddd;
     font-family: "nexa_lightregular";
     font-size: 16px;
-}
-
-input {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 2px solid rgba(82, 73, 73, 0.856);
+    font-weight: bold;
 }
 
 .largeWrapper {
@@ -30,36 +24,39 @@ input {
 }
 
 .button {
-    border: none;
-    background-color: rgba(255, 0, 0, 0.74);
-    width: 80px;
-    height: 40px;
-    border-radius: 10px 0 10px 0;
+    color: rgb(0, 33, 77);
+}
+
+.redButton {
+    color: rgb(204, 30, 30)
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    width: 100% !important;
+}
+
+h2 {
+    color: #be6c01;
+}
+
+h3 {
+    color: #d39716;
+}
+
+tr {
     transition: all 0.25s ease-in-out;
+    font-size: 18px;
 }
 
-.button:hover{
-    background-color: rgba(224, 33, 33, 0.74);
+tr:hover {
+    color: #ff9100;
+    cursor: pointer;
 }
 
-.button:active{
-    border: solid 1px black;
-}
-
-.normalBox {
-    background-color: rgba(224, 153, 0, 0.836);
-    padding: 20px;
-    border-radius: 20px 0 20px 0;
-}
-
-tr{
-    transition: all 0.25s ease-in-out;
-}
-
-tr:hover{
-    color: #2e2e2e;
-}
-
-tr:focus{
-    color: white;
+tr:active {
+    opacity: 0.5;
 }

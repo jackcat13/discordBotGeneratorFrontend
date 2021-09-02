@@ -3,98 +3,127 @@
 <app-user-details></app-user-details>
 
 <div class="largeWrapper" [ngStyle]="{'opacity': isLoading == true ? '0.5' : '' }">
-    <div id="botsForm" class="normalBox">
-        <h2>My bots</h2>
-        <div class="bots">
-            <table>
-                <tr *ngFor="let bot of bots" [class.selected]="bot === selectedBot" tabindex="0">
-                    <td (click)="onSelect(bot)">{{bot.id}}:</td>
-                    <td (click)="onSelect(bot)">{{bot.description}}</td>
-                    <td><button class="button" (click)="deleteBot(bot)">Delete</button></td>
-                </tr>
-            </table>
-            <div id="createBotForm">
-                <div class="createBotEntry">
-                    <label for="botId">Id: </label>
-                    <input id="botId" type="text" [formControl]="botId">
+    <div id="botsForm">
+        <div class="botsList">
+            <lib-bordered-title title="My bots"></lib-bordered-title>
+            <div class="bots">
+                <table>
+                    <tr *ngFor="let bot of bots" [class.selected]="bot === selectedBot">
+                        <td (click)="onSelect(bot)">{{bot.id}}:</td>
+                        <td (click)="onSelect(bot)">{{bot.description}}</td>
+                        <td>
+                            <lib-bordered-button title="delete" backgroundColor="rgb(204, 30, 30)" color="white" class="redButton" (click)="deleteBot(bot) "></lib-bordered-button>
+                        </td>
+                    </tr>
+                </table>
+                <div id="createBotForm ">
+                    <div class="createBotEntry ">
+                        <mat-form-field>
+                            <input id="botId " placeholder="Bot id " aria-label="Bot id " matInput type="text " [formControl]="botId ">
+                        </mat-form-field>
+                    </div>
+                    <div class="createBotEntry ">
+                        <mat-form-field>
+                            <input id="botDescription " placeholder="Bot description " aria-label="Bot description " matInput type="text " [formControl]="botDescription ">
+                        </mat-form-field>
+                    </div>
+                    <div class="button ">
+                        <lib-bordered-button title="Create bot " backgroundColor="rgb(0, 33, 77) " color="white " (click)="createBot() "></lib-bordered-button>
+                    </div>
                 </div>
-                <div class="createBotEntry">
-                    <label for="botDescription">Description: </label>
-                    <input id="botDescription" type="text" [formControl]="botDescription">
-                </div>
-                <button class="button" (click)="createBot()">Create bot</button>
             </div>
         </div>
     </div>
 
-    <div id="botConfiguration" class="normalBox" *ngIf="isConfiguring">
+    <div id="botConfiguration " class="normalBox " *ngIf="isConfiguring ">
         <div id="botCommands">
+            <lib-bordered-title title="Configuration"></lib-bordered-title>
 
-            <h2>Token</h2>
-            <table>
-                <tr>
-                    <td><input type="text" [formControl]="token"></td>
-                </tr>
-            </table>
-
-            <h2>Commands</h2>
-            <table>
-                <tr>
-                    <td><input type="text" [formControl]="sondage"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" [formControl]="help"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" [formControl]="mp"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" [formControl]="mute"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" [formControl]="unmute"></td>
-                </tr>
-            </table>
-
-            <h2>Channels</h2>
-            <table>
-                <tr>
-                    <td><input type="text" [formControl]="messagesChannel"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" [formControl]="welcomeChannel"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" [formControl]="logsChannel"></td>
-                </tr>
-            </table>
-
-            <h2>Messages</h2>
-            <table>
-                <tr>
-                    <td><input type="text" [formControl]="rulesMessages"></td>
-                </tr>
-            </table>
-
-            <h2>Roles</h2>
-            <table>
-                <tr>
-                    <td><input type="text" [formControl]="activeRole"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" [formControl]="muteRole"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" [formControl]="adminRole"></td>
-                </tr>
-            </table>
-
-            <div>
-                <button class="button" (click)="configureBot()">Configure bot</button>
-                <button *ngIf="!isBotStarted" class="button" (click)="startBot()">Start bot</button>
+            <div class="botConfigurationGroup">
+                <h2>
+                    Token
+                </h2>
+                <div>
+                    <mat-form-field>
+                        <input placeholder="Token" aria-label="Token" matInput type="text" [formControl]="token">
+                    </mat-form-field>
+                </div>
             </div>
 
-            <div *ngIf="isBotStarted">Bot started</div>
+            <div class="botConfigurationGroup">
+                <h2>
+                    Commands
+                </h2>
+                <div>
+                    <mat-form-field>
+                        <input placeholder="sondage" aria-label="sondage" matInput type="text" [formControl]="sondage">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input placeholder="help" aria-label="help" matInput type="text" [formControl]="help">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input placeholder="mp" aria-label="mp" matInput type="text" [formControl]="mp">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input placeholder="mute" aria-label="mute" matInput type="text" [formControl]="mute">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input placeholder="unmute" aria-label="unmute" matInput type="text" [formControl]="unmute">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="botConfigurationGroup">
+                <h2>
+                    Channels
+                </h2>
+                <div>
+                    <mat-form-field>
+                        <input placeholder="messagesChannel" aria-label="messagesChannel" matInput type="text" [formControl]="messagesChannel">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input placeholder="welcomeChannel" aria-label="welcomeChannel" matInput type="text" [formControl]="welcomeChannel">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input placeholder="logsChannel" aria-label="logsChannel" matInput type="text" [formControl]="logsChannel">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="botConfigurationGroup">
+                <h2>
+                    Messages
+                </h2>
+                <div>
+                    <mat-form-field>
+                        <input placeholder="rulesMessages" aria-label="rulesMessages" matInput type="text" [formControl]="rulesMessages">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="botConfigurationGroup">
+                <h2>
+                    Roles
+                </h2>
+                <div>
+                    <mat-form-field>
+                        <input placeholder="activeRole" aria-label="activeRole" matInput type="text" [formControl]="activeRole">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input placeholder="muteRole" aria-label="muteRole" matInput type="text" [formControl]="muteRole">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input placeholder="adminRole" aria-label="adminRole" matInput type="text" [formControl]="adminRole">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div id="configurationButtons">
+                <lib-bordered-button title="Configure bot" class="button " (click)="configureBot() "></lib-bordered-button>
+                <lib-bordered-button title="Start bot" *ngIf="!isBotStarted " class="button " (click)="startBot() "></lib-bordered-button>
+            </div>
+
+            <div *ngIf="isBotStarted ">Bot started</div>
         </div>
     </div>
 </div>
