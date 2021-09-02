@@ -119,8 +119,8 @@
             </div>
 
             <div id="configurationButtons">
-                <lib-bordered-button title="Configure bot" class="button " (click)="configureBot() "></lib-bordered-button>
-                <lib-bordered-button title="Start bot" *ngIf="!isBotStarted " class="button " (click)="startBot() "></lib-bordered-button>
+                <lib-bordered-button title="Configure bot" backgroundColor="rgb(0, 33, 77)" color="white" class="button" (click)="configureBot() "></lib-bordered-button>
+                <lib-bordered-button title="Start bot" *ngIf="!isBotStarted" backgroundColor="rgb(0, 33, 77)" color="white" class="button" (click)="startBot() "></lib-bordered-button>
             </div>
 
             <div *ngIf="isBotStarted ">Bot started</div>

@@ -1,11 +1,33 @@
 #userDetails {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
     padding: 20px;
-    background-color: rgba(255, 183, 27, 0.753);
+    background-color: rgb(255, 183, 27);
     padding: 20px;
     border-radius: 20px 0 20px 0;
+    transition: all 0.25s ease-in-out;
+    z-index: 10;
+    font-size: 16px;
+}
+
+#userDetails:hover {
+    background-color: rgb(255, 145, 0);
+    cursor: pointer;
+}
+
+#userDetails:active {
+    opacity: 0.2;
+}
+
+#userDetails.small {
+    width: 60px;
+    height: 60px;
+}
+
+#userDetails.notSmall {
+    width: 205px;
+    height: 180px;
 }
 
 #avatar {
@@ -13,8 +35,12 @@
     width: 60px;
     height: 60px;
     background-image: url("./generic-avatar.png");
+    margin: auto;
+    margin-bottom: 40px;
 }
 
 .userentry {
+    margin: auto;
     margin-top: 15px;
+    width: fit-content;
 }

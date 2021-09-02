@@ -9,6 +9,8 @@ import { DiscordLoginService } from '../service/login.service';
 })
 export class UserDetailsComponent implements OnInit {
 
+  collapse = true;
+
   constructor(private loginService: DiscordLoginService) { }
 
   user: User = {id: "", username: "", discriminator: 0, avatar: "", locale: ""};
@@ -20,5 +22,9 @@ export class UserDetailsComponent implements OnInit {
 
   deconnection(): void{
     this.loginService.deconnect();
+  }
+
+  changeSize(): void{
+    this.collapse ? this.collapse = false : this.collapse = true    
   }
 }

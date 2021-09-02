@@ -1,9 +1,11 @@
-<div id="userDetails">
+<div (click)="changeSize()" [ngClass]="{'small': collapse, 'notSmall': !collapse}" id="userDetails">
     <div id="avatar">
 
     </div>
-    <div id="userinfos">
+    <div *ngIf="!collapse" id="userinfos">
         <div class="userentry"><span class="label">Name:</span>{{user.username}}</div>
-        <div class="userentry"><button class="button" id="logout" type="submit" (click)="deconnection()">Logout</button></div>
+        <div class="userentry">
+            <lib-bordered-button title="Logout" backgroundColor="red" color="white" class="button" id="logout" type="submit" (click)="deconnection()"></lib-bordered-button>
+        </div>
     </div>
 </div>

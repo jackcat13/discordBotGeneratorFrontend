@@ -104,6 +104,37 @@
                     }
                 }
             }
+        },
+        "bordered-user-details": {
+            "projectType": "library",
+            "root": "projects/bordered-user-details",
+            "sourceRoot": "projects/bordered-user-details/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
+                    "options": {
+                        "project": "projects/bordered-user-details/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/bordered-user-details/tsconfig.lib.prod.json"
+                        },
+                        "development": {
+                            "tsConfig": "projects/bordered-user-details/tsconfig.lib.json"
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/bordered-user-details/src/test.ts",
+                        "tsConfig": "projects/bordered-user-details/tsconfig.spec.json",
+                        "karmaConfig": "projects/bordered-user-details/karma.conf.js"
+                    }
+                }
+            }
         }
     },
     "defaultProject": "discordBotGenerator"
