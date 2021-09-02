@@ -98,17 +98,6 @@ export class BotListComponent implements OnInit {
     );
   }
 
-  startBot(): void{
-    this.service.startBot(this.selectedBot.id).subscribe(
-      res => {
-        console.log("Bot started")
-        this.getBotServiceStatus(this.selectedBot.id)
-      },
-      err => console.error(err),
-      () => console.log("Starting bot completed")
-    );
-  }
-
   private changeSelectedBotConfiguration(){
     //token
     this.selectedBot.configuration!.token = this.token.value;
@@ -128,6 +117,17 @@ export class BotListComponent implements OnInit {
     this.selectedBot.configuration!.roles.activeRole = this.activeRole.value;
     this.selectedBot.configuration!.roles.adminRole = this.adminRole.value;
     this.selectedBot.configuration!.roles.muteRole = this.muteRole.value;
+  }
+
+  startBot(): void{
+    this.service.startBot(this.selectedBot.id).subscribe(
+      res => {
+        console.log("Bot started")
+        this.getBotServiceStatus(this.selectedBot.id)
+      },
+      err => console.error(err),
+      () => console.log("Starting bot completed")
+    );
   }
 
   private getBotServiceStatus(id: String){
