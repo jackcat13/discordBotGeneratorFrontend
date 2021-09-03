@@ -51,6 +51,10 @@ export class BotService {
         return this.http.put<Bot>(this.botUrl, bot);
     }
 
+    downloadBotCode(botId: string){
+        return this.http.get(this.botUrl + "/" + botId + "/downloadBotCode");
+    }
+
     startBot(botId: string): Observable<Bot> {
         return this.http.post<Bot>(this.botUrl + "/" + botId, {});
     }

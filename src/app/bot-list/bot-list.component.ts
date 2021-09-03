@@ -137,6 +137,10 @@ export class BotListComponent implements OnInit {
       () => console.log("Configure bot completed")
     )
   }
+  
+  downloadBotCode(){
+    this.service.downloadBotCode(this.selectedBot.id)
+  }
 
   deleteBot(bot: Bot): void {
     this.service.deleteBot(bot).subscribe(
